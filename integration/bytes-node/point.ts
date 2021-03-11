@@ -7,7 +7,7 @@ export interface Point {
   data: Buffer;
 }
 
-const basePoint: object = {};
+const basePoint: object = { data: new Buffer(0) };
 
 export const Point = {
   encode(message: Point, writer: Writer = Writer.create()): Writer {

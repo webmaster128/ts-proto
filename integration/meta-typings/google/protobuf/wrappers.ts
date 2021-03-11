@@ -327,7 +327,7 @@ export const StringValue = {
   },
 };
 
-const baseBytesValue: object = {};
+const baseBytesValue: object = { value: new Uint8Array() };
 
 export const BytesValue = {
   encode(message: BytesValue, writer: Writer = Writer.create()): Writer {

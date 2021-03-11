@@ -5,7 +5,7 @@ export interface Message {
   data: Uint8Array;
 }
 
-const baseMessage: object = {};
+const baseMessage: object = { data: new Uint8Array() };
 
 export const Message = {
   fromJSON(object: any): Message {

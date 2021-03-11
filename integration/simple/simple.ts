@@ -278,7 +278,16 @@ export interface SimpleButOptional {
 
 export interface Empty {}
 
-const baseSimple: object = { name: '', age: 0, state: 0, coins: 0, snacks: '', oldStates: 0 };
+const baseSimple: object = {
+  name: '',
+  age: 0,
+  state: 0,
+  coins: 0,
+  snacks: '',
+  oldStates: 0,
+  blobs: new Uint8Array(),
+  blob: new Uint8Array(),
+};
 
 export const Simple = {
   encode(message: Simple, writer: Writer = Writer.create()): Writer {
@@ -1638,7 +1647,7 @@ export const SimpleWithMap_MapOfTimestampsEntry = {
   },
 };
 
-const baseSimpleWithMap_MapOfBytesEntry: object = { key: '' };
+const baseSimpleWithMap_MapOfBytesEntry: object = { key: '', value: new Uint8Array() };
 
 export const SimpleWithMap_MapOfBytesEntry = {
   encode(message: SimpleWithMap_MapOfBytesEntry, writer: Writer = Writer.create()): Writer {

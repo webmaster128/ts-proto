@@ -521,7 +521,7 @@ function generateBaseInstance(ctx: Context, fullName: string, messageDesc: Descr
   const fields = messageDesc.field
     .filter((field) => !isWithinOneOf(field))
     .map((field) => [field, defaultValue(ctx, field)])
-    .filter(([field, val]) => val !== 'undefined' && !isBytes(field))
+    .filter(([_field, val]) => val !== 'undefined')
     .map(([field, val]) => {
       const name = maybeSnakeToCamel(field.name, ctx.options);
       return code`${name}: ${val}`;
