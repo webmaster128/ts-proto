@@ -7,7 +7,7 @@ export interface Point {
   data: Buffer;
 }
 
-const basePoint: object = { data: new Buffer(0) };
+const basePoint: object = { data: Buffer.alloc(0) };
 
 export const Point = {
   encode(message: Point, writer: Writer = Writer.create()): Writer {
@@ -46,7 +46,7 @@ export const Point = {
   toJSON(message: Point): unknown {
     const obj: any = {};
     message.data !== undefined &&
-      (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Buffer(0)));
+      (obj.data = base64FromBytes(message.data !== undefined ? message.data : Buffer.alloc(0)));
     return obj;
   },
 
@@ -55,7 +55,7 @@ export const Point = {
     if (object.data !== undefined && object.data !== null) {
       message.data = object.data;
     } else {
-      message.data = new Buffer(0);
+      message.data = Buffer.alloc(0);
     }
     return message;
   },
